@@ -1,6 +1,5 @@
 demo = window.demo || (window.demo = {});
 
-
 let mainTheme,
   battle1,
   battle2,
@@ -11,9 +10,6 @@ let mainTheme,
   tracks,
   cachedTrack,
   slotCreated = false;
-
-
-
 
 class soundPlayer {
   constructor() {
@@ -29,43 +25,35 @@ class soundPlayer {
   incrementTrack = () => {
     if (this.trackNumber < 6) {
       this.trackNumber = this.trackNumber += 1;
-
     } else {
       this.trackNumber = 0;
     }
   }
   setSong = (name) => {
-
     this.songName = name;
-
   }
 }
-
-
 
 const soundTester = new soundPlayer();
 
 let currentTrackNumber = parseInt(soundTester.trackNumber);
 
-
 demo.soundTest = function () { };
 demo.soundTest.prototype = {
   preload: function () {
-    game.load.image('sky', '../assets/art/onlineBG3.png');
-
+    game.load.image('sky', 'assets/art/onlineBG3.png');
     /* Load audio for sound test */
+    mainTheme = game.load.audio('mainTheme', 'assets/music/ThemeOfPixelSmash.ogg')
+    battle1 = game.load.audio('battle1', 'assets/music/Ambush.mp3')
+    battle2 = game.load.audio('battle2', 'assets/music/Dive into Battle.ogg')
+    battle3 = game.load.audio('battle3', 'assets/music/FriendlyCompetition.mp3')
+    battle4 = game.load.audio('battle4', 'assets/music/test.mp3')
+    onlineLobby = game.load.audio('onlineLobby', 'assets/music/Intermission.ogg')
+    selectFighter = game.load.audio('selectFighter', 'assets/music/Ready.ogg');
 
-    mainTheme = game.load.audio('mainTheme', '../assets/music/ThemeOfPixelSmash.ogg')
-    battle1 = game.load.audio('battle1', '../assets/music/Ambush.mp3')
-    battle2 = game.load.audio('battle2', '../assets/music/Dive into Battle.ogg')
-    battle3 = game.load.audio('battle3', '../assets/music/FriendlyCompetition.mp3')
-    battle4 = game.load.audio('battle4', '../assets/music/test.mp3')
-    onlineLobby = game.load.audio('onlineLobby', '../assets/music/Intermission.ogg')
-    selectFighter = game.load.audio('selectFighter', '../assets/music/Ready.ogg');
+    game.load.bitmapFont('nokia', 'assets/art/fonts/font.png', 'assets/art/fonts/font.fnt');
 
-    game.load.bitmapFont('nokia', '../assets/art/fonts/font.png', '../assets/art/fonts/font.fnt');
-
-    game.load.spritesheet('button', '../assets/art/buttonbox.png');
+    game.load.spritesheet('button', 'assets/art/buttonbox.png');
 
 
 

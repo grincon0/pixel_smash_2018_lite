@@ -73,11 +73,11 @@ function ghosty() {
 demo.state1 = function () { };
 demo.state1.prototype = {
   preload: function () {
-    game.load.image('background', '../assets/art/start-state-background.png');
-    game.load.spritesheet('tester', '../assets/art/scott-final.png', 142, 184, 151);
-    game.load.spritesheet('ghosty', '../assets/art/MarshUmbra.png', 160, 160, 190);
-    game.load.audio('charMusic', '../assets/music/Ready.ogg');
-    game.load.audio('goodluck', '../assets/sfx/GoodLuck.wav');
+    game.load.image('background', 'assets/art/start-state-background.png');
+    game.load.spritesheet('tester', 'assets/art/scott-final.png', 142, 184, 151);
+    game.load.spritesheet('ghosty', 'assets/art/MarshUmbra.png', 160, 160, 190);
+    game.load.audio('charMusic', 'assets/music/Ready.ogg');
+    game.load.audio('goodluck', 'assets/sfx/GoodLuck.wav');
   },
   create: function () {
     characterMenu = game.add.image(0, 0, 'background');

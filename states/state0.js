@@ -113,13 +113,13 @@ function rankings() {
 demo.state0 = function () { };
 demo.state0.prototype = {
   preload: function () {
-    game.load.image('menu-background', '/assets/art/start-state-background.png');
-    game.load.spritesheet('particles', '../assets/art/startParticle.png');
-    game.load.image('button1', '../assets/art/startGame.png');
-    game.load.image('button2', '../assets/art/online.png');
-    game.load.image('button3', '../assets/art/rankings.png');
-    game.load.audio('bgm', '../assets/music/ThemeOfPixelSmash.ogg');
-    game.load.audio('enter', '../assets/sfx/enter.wav');
+    game.load.image('menu-background', 'assets/art/start-state-background.png');
+    game.load.spritesheet('particles', 'assets/art/startParticle.png');
+    game.load.image('button1', 'assets/art/startGame.png');
+    game.load.image('button2', 'assets/art/online.png');
+    game.load.image('button3', 'assets/art/rankings.png');
+    game.load.audio('bgm', 'assets/music/ThemeOfPixelSmash.ogg');
+    game.load.audio('enter', 'assets/sfx/enter.wav');
   },
 
   create: function () {

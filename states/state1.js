@@ -1,6 +1,5 @@
 // State 1 character selection
 demo = window.demo || (window.demo = {});
-//et socket = io();
 let isScottClicked = false;
 window.selectedChar = '';
 
@@ -97,7 +96,6 @@ demo.state1.prototype = {
 
 function up(character, bol) {
   console.log('button up', character);
-  socket.emit('my-player', { name: character, bol: bol });
 }
 
 //Scott has been selected;
@@ -152,7 +150,3 @@ function playMusic() {
   charMusic.play();
   charMusic.loopFull();
 }
-
-socket.on('start-game', function () {
-  game.state.start('game');
-});

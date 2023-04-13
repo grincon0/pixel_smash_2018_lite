@@ -4,7 +4,6 @@ player = new Character('mghosty', 10, 1000, 1600);
 comp = new Ai('scott', 10, 1110, 1700);
 
 
-
 demo.training = function () { };
 demo.training.prototype = {
   preload: function () {

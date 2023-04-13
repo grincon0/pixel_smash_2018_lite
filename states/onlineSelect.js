@@ -1,6 +1,5 @@
 // State 1 character selection
 demo = window.demo || (window.demo = {});
-//let socket = io();
 
 let fighter = '';
 let glSFX;
@@ -98,14 +97,12 @@ demo.onlineChars.prototype = {
 function chooseScott() {
   fighter = 'scott';
   console.log(fighter, 'IS A FIGHTER & OPPONENT IS ', opponent);
-  socket.emit('my-player', { fighter: fighter, opponent: opponent, id: socket.id });
   // handleSelectedFighter(fighter);
 }
 
 function chooseGhost() {
   fighter = 'mghosty';
   console.log(fighter, 'IS A FIGHTER & OPPONENT IS ', opponent);
-  socket.emit('my-player', { fighter: fighter, opponent: opponent, id: socket.id });
   // handleSelectedFighter(fighter);
 }
 
@@ -127,30 +124,3 @@ function playMusic() {
   charMusic.play();
   charMusic.loopFull();
 }
-
-socket.on('opponent-picked', (data) => {
-  console.log(data, "FROM OPPONENT_PICKED EVENT");
-  if (socket.id !== data.id) opponent = data.opponent;
-  // Ready after two players
-  if ((fighter !== '') && (opponent !== '')) {
-    console.log("Opponent is Here line 131", opponent);
-    socket.emit('ready', { id: socket.id, myplayer: fighter, myopponent: opponent });
-  }
-});
-
-socket.on('greenlight', (data) => {
-  console.log("GREENLIGHT EMIT******", data);
-  let dude, comp;
-
-  if (socket.id === data.id) {
-    dude = data.fighter;
-    comp = data.opponent;
-  } else {
-    dude = data.opponent;
-    comp = data.fighter;
-  }
-  game.sound.stopAll();
-  getPlayer({ dude, comp });
-  //goodluck.play();
-  game.state.start('game');
-});

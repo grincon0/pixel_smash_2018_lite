@@ -1,6 +1,5 @@
 // State 0 start menu
 let demo = window.demo || (window.demo = {});
-//let socket = io();
 let mainBGM;
 let enter;
 
@@ -141,23 +140,14 @@ demo.state0.prototype = {
 
 
 function up() {
-
   game.sound.stopAll();
 }
 
-function over() {
-
-}
-
-function out() {
-
-}
 
 function playGame() {
   game.sound.stopAll();
   enter.play();
   game.state.start('state1');
-  //socket.emit('gaming');
 }
 
 function goOnline() {
@@ -170,7 +160,3 @@ function goSoundTest() {
   enter.play();
   game.state.start('soundTest')
 }
-
-/*socket.on('clicked-menu', function () {
-    game.state.start('state1');
-});*/

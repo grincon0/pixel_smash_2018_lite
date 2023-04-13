@@ -4408,16 +4408,8 @@ demo.game.prototype = {
 
     updateGrounded(dummy, comp);
 
-
-    socket.on('get-updates', (compAct) => {
-      /*set comp = new Opponent before uncommenting the line below */
-      comp.updateActions(compAct);
-    });
-
     /*set comp = new Opponent before uncommenting the line below */
     comp.runIdleControl(dummy);
-
-
 
     //looks into the obj sent through sockets containg the boolenas and strong that
     //determine what our opponenet does on our screen
@@ -4990,9 +4982,6 @@ function updateActs(act) {
   } else {
     act.holdDown = false;
   }
-
-  //****************Socket.emit to update character on the other end**********
-  socket.emit('send-updates', act);
 }
 
 

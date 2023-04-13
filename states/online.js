@@ -6,12 +6,12 @@ let bg;
 demo.online = function () { };
 demo.online.prototype = {
   preload: function () {
-    game.load.image('sky', '../assets/art/onlineBG3.png');
-    game.load.spritesheet('rain1', '../assets/art/redb1.png', 15, 15);
-    game.load.spritesheet('rain2', '../assets/art/redg1.png', 15, 15);
-    game.load.spritesheet('rain3', '../assets/art/redp1.png', 15, 15);
-    game.load.spritesheet('rain4', '../assets/art/redpk1.png', 15, 15);
-    game.load.audio('bgm', '../assets/music/Intermission.ogg');
+    game.load.image('sky', 'assets/art/onlineBG3.png');
+    game.load.spritesheet('rain1', 'assets/art/redb1.png', 15, 15);
+    game.load.spritesheet('rain2', 'assets/art/redg1.png', 15, 15);
+    game.load.spritesheet('rain3', 'assets/art/redp1.png', 15, 15);
+    game.load.spritesheet('rain4', 'assets/art/redpk1.png', 15, 15);
+    game.load.audio('bgm', 'assets/music/Intermission.ogg');
   },
   create: function () {
     bgm = game.add.audio('bgm');
@@ -68,5 +68,4 @@ demo.online.prototype = {
   update: function () {
 
   }
-
 }

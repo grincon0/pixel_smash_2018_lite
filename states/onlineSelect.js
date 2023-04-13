@@ -73,11 +73,11 @@ function ghosty() {
 demo.onlineChars = function () { };
 demo.onlineChars.prototype = {
   preload: function () {
-    game.load.image('background', '../assets/art/start-state-background.png');
-    game.load.spritesheet('tester', '../assets/art/scott-final.png', 142, 184, 151);
-    game.load.spritesheet('ghosty', '../assets/art/MarshUmbra.png', 160, 160, 190);
-    game.load.audio('charMusic', '../assets/music/Ready.ogg');
-    game.load.audio('goodluck', '../assets/sfx/GoodLuck.wav');
+    game.load.image('background', 'assets/art/start-state-background.png');
+    game.load.spritesheet('tester', 'assets/art/scott-final.png', 142, 184, 151);
+    game.load.spritesheet('ghosty', 'assets/art/MarshUmbra.png', 160, 160, 190);
+    game.load.audio('charMusic', 'assets/music/Ready.ogg');
+    game.load.audio('goodluck', 'assets/sfx/GoodLuck.wav');
   },
   create: function () {
     characterMenu = game.add.image(0, 0, 'background');
@@ -97,13 +97,11 @@ demo.onlineChars.prototype = {
 function chooseScott() {
   fighter = 'scott';
   console.log(fighter, 'IS A FIGHTER & OPPONENT IS ', opponent);
-  // handleSelectedFighter(fighter);
 }
 
 function chooseGhost() {
   fighter = 'mghosty';
   console.log(fighter, 'IS A FIGHTER & OPPONENT IS ', opponent);
-  // handleSelectedFighter(fighter);
 }
 
 function over() {

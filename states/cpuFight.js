@@ -1,9 +1,12 @@
 demo = window.demo || (window.demo = {});
-let selectedFighter = window.selectedChar;
-console.log('window.selectedChar', window.selectedChar);
-//mghosty for ghost
-// scott for scott
-player = new Character('mghosty', 10, 1000, 1900);
+let selectedFighter;
+selectedFighter = getCharacterNameFromLocalStorage();
+console.log('getting local storage char name', localStorage.getItem('characterName'));
+// mghosty === ghost
+// scott === scott pilgrim
+/* const cpuFighter = selectedFighter === 'scott' ? 'mghosty' : 'scott'; */
+
+player = new Character(selectedFighter, 10, 1000, 1900);
 comp = new CPU('scott', 10, 1300, 1500);
 let attempts = 0;
 let hits = 0;
@@ -2610,4 +2613,8 @@ function resetSense(arr) {
       comp.actions[senses[i]] = false;
     }, 300);
   }
+}
+
+function getCharacterNameFromLocalStorage() {
+  return localStorage.getItem('characterName');
 }

@@ -50,13 +50,8 @@ demo.soundTest.prototype = {
     battle4 = game.load.audio('battle4', 'assets/music/test.mp3')
     onlineLobby = game.load.audio('onlineLobby', 'assets/music/Intermission.ogg')
     selectFighter = game.load.audio('selectFighter', 'assets/music/Ready.ogg');
-
     game.load.bitmapFont('nokia', 'assets/art/fonts/font.png', 'assets/art/fonts/font.fnt');
-
     game.load.spritesheet('button', 'assets/art/buttonbox.png');
-
-
-
   },
   create: function () {
     mainTheme = game.add.audio('mainTheme');
@@ -118,18 +113,10 @@ demo.soundTest.prototype = {
 
   },
   update: function () {
-
     if (cachedTrack !== currentTrackNumber) {
       makeButton(`BGM: 0${currentTrackNumber}`, 310, 600);
     }
-
-
-
-
-
-
   }
-
 };
 
 
@@ -148,29 +135,20 @@ function makeButton(name, x, y) {
 
 function click(button) {
   if (button.name === '<') {
-
     tracks[currentTrackNumber].name.stop();
-
     soundTester.decrementTrack();
     currentTrackNumber = soundTester.trackNumber;
     soundTester.setSong(`${tracks[currentTrackNumber].name}`);
     tracks[currentTrackNumber].name.play();
-
-
   }
 
   if (button.name === '>') {
-
     tracks[currentTrackNumber].name.stop();
-
-
     soundTester.incrementTrack();
     currentTrackNumber = soundTester.trackNumber;
     soundTester.setSong(`${tracks[currentTrackNumber].name}`);
     tracks[currentTrackNumber].name.play();
   }
-
-
 }
 
 function soundText() {

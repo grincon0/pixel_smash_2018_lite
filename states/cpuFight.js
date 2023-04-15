@@ -1,10 +1,7 @@
 demo = window.demo || (window.demo = {});
-let selectedFighter;
-selectedFighter = getCharacterNameFromLocalStorage();
-console.log('getting local storage char name', localStorage.getItem('characterName'));
+let selectedFighter = getCharacterNameFromLocalStorage();
 // mghosty === ghost
 // scott === scott pilgrim
-/* const cpuFighter = selectedFighter === 'scott' ? 'mghosty' : 'scott'; */
 
 player = new Character(selectedFighter, 10, 1000, 1900);
 comp = new CPU('scott', 10, 1300, 1500);
@@ -21,7 +18,9 @@ stage = '';
 lives;
 music;
 flipFlop;
+
 // sound vars need for global use for player 1
+
 airRec;
 slash;
 ejectBall;

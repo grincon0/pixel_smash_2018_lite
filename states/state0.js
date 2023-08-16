@@ -134,6 +134,7 @@ demo.state0.prototype = {
     mainBGM.play();
 
     enter = game.add.audio('enter');
+    sessionStorage.clear();
   },
   update: function () { }
 };

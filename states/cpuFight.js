@@ -1,10 +1,8 @@
 demo = window.demo || (window.demo = {});
-let selectedFighter = getCharacterNameFromLocalStorage();
+let selectedFighter;
+// console.log('selected fighter', selectedFighter);
 // mghosty === ghost
 // scott === scott pilgrim
-
-player = new Character(selectedFighter, 10, 1000, 1900);
-comp = new CPU('scott', 10, 1300, 1500);
 let attempts = 0;
 let hits = 0;
 let hitRatio = 0;
@@ -1707,10 +1705,15 @@ demo.cpuFight.prototype = {
     game.load.audio('explosion', 'assets/sfx/expl.wav');
     game.load.audio('battle1', 'assets/music/Ambush.mp3');
     game.load.audio('battle2', 'assets/music/test.mp3');
+    selectedFighter = getCharacterNameFromSessionStorage();
+    player = new Character(selectedFighter, 10, 1000, 1900);
+   comp = new CPU('scott', 10, 1300, 1500);
   },
   create: function () {
     // Starting game physics
     game.physics.startSystem(Phaser.Physics.ARCADE);
+/*     player = new Character(selectedFighter, 10, 1000, 1900);
+    comp = new CPU('scott', 10, 1300, 1500); */
     music = game.add.audio('battle2');
     music.play();
     game.stage.backgroundColor = '#800080';
@@ -2614,6 +2617,6 @@ function resetSense(arr) {
   }
 }
 
-function getCharacterNameFromLocalStorage() {
-  return localStorage.getItem('characterName');
+function getCharacterNameFromSessionStorage() {
+  return sessionStorage.getItem('characterName');
 }

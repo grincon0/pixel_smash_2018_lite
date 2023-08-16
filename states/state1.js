@@ -1,6 +1,13 @@
-// State 1 character selection
+/* 
+
+************************************
+State 1 = CHARACTER SELECTION SCREEN 
+************************************
+
+*/
 demo = window.demo || (window.demo = {});
 let isScottClicked = false;
+characterSelection = '';
 window.selectedChar = '';
 
 /*let fighter;
@@ -90,7 +97,20 @@ demo.state1.prototype = {
 
     playMusic();
   },
-  update: function () { }
+  update: function () { 
+
+    /* if (!characterSelection) console.log('no char'); */
+
+    if (!checkCharacterNameInSessionStorage() && characterSelection) {
+      console.log(characterSelection);
+      setCharacterNameOnSessionStorage(characterSelection);
+    } 
+
+    if (characterSelection && checkCharacterNameInSessionStorage()) {
+      console.log('getting char name from session stoarage', checkCharacterNameInSessionStorage())
+      handleStateTransition();
+    }
+  }
 };
 
 function up(character, bol) {
@@ -105,19 +125,20 @@ function scottClicked() {
 
 function chooseScott() {
   fighter = 'scott';
-  setCharacterNameOnLocalStorage(fighter);
+ /*  setCharacterNameOnSessionStorage(fighter); */
+  handleCharacterSelection(fighter);
   game.sound.stopAll();
   goodluck.play();
-  game.state.start('cpuFight');
 }
 
 function chooseGhost() {
   fighter = 'mghosty';
-  setCharacterNameOnLocalStorage(fighter);
+  /* setCharacterNameOnSessionStorage(fighter); */
+  handleCharacterSelection(fighter);
   game.sound.stopAll();
   goodluck.play();
-  console.log('start game');
-  game.state.start('cpuFight');
+  // console.log('start game');
+
 }
 
 //Ghost has been selected;
@@ -127,13 +148,36 @@ function ghostClicked() {
   up('mghosty', isGhostClicked);
 }
 
-function setCharacterNameOnLocalStorage(nameString) {
-  console.log('setting charater naem to local storage', nameString);
-  localStorage.setItem('characterName', nameString);
+function handleCharacterSelection(fighter) {
+  characterSelection = fighter;
+}
+
+const checkCharacterNameInSessionStorage = () => {
+  const characterName = sessionStorage.getItem("characterName");
+  if (!characterName) {
+    return null;
+  }
+
+  return characterName;
+}
+
+const setCharacterNameOnSessionStorage = (nameString) => {
+  console.log('setting charater naem to session storage', nameString);
+/*   localStorage.setItem('characterName', nameString); */
+   sessionStorage.setItem('characterName', nameString);
 }
 
 function clearCharacterNameOnLocalStorage () {
-  localStorage.setItem("characterName", '');
+  /* localStorage.setItem("characterName", ''); */
+  sessionStorage.removeItem('characterName');
+}
+
+function handleStateTransition() {
+  if (checkCharacterNameInSessionStorage()) {
+    game.state.start('cpuFight');
+  } else {
+    alert('NO CHARACTER NAME IN SESSINON STORAGE');
+  }
 }
 
 function over() {

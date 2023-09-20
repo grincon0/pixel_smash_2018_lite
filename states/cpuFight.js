@@ -1704,7 +1704,7 @@ demo.cpuFight.prototype = {
     game.load.audio('elecHit', 'assets/sfx/Hurt.wav');
     game.load.audio('explosion', 'assets/sfx/expl.wav');
     game.load.audio('battle1', 'assets/music/Ambush.mp3');
-    game.load.audio('battle2', 'assets/music/test.mp3');
+    game.load.audio('battle2', 'assets/music/test.ogg');
     selectedFighter = getCharacterNameFromSessionStorage();
     player = new Character(selectedFighter, 10, 1000, 1900);
    comp = new CPU('scott', 10, 1300, 1500);

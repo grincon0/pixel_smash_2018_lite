@@ -47,7 +47,7 @@ demo.soundTest.prototype = {
     battle1 = game.load.audio('battle1', 'assets/music/Ambush.mp3')
     battle2 = game.load.audio('battle2', 'assets/music/Dive into Battle.ogg')
     battle3 = game.load.audio('battle3', 'assets/music/FriendlyCompetition.mp3')
-    battle4 = game.load.audio('battle4', 'assets/music/test.mp3')
+    battle4 = game.load.audio('battle4', 'assets/music/test.ogg')
     onlineLobby = game.load.audio('onlineLobby', 'assets/music/Intermission.ogg')
     selectFighter = game.load.audio('selectFighter', 'assets/music/Ready.ogg');
     game.load.bitmapFont('nokia', 'assets/art/fonts/font.png', 'assets/art/fonts/font.fnt');
